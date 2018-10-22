@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.UserAcctMapper" >
+  <resultMap id="BaseResultMap" type="UserAcct" >
+    <id column="user_acct_id" property="userAcctId" jdbcType="INTEGER" />
+    <result column="user_source_type" property="userSourceType" jdbcType="VARCHAR" />
+    <result column="user_souce_code" property="userSouceCode" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_gender" property="userGender" jdbcType="INTEGER" />
+    <result column="user_nick" property="userNick" jdbcType="VARCHAR" />
+    <result column="user_img" property="userImg" jdbcType="VARCHAR" />
+    <result column="user_province" property="userProvince" jdbcType="VARCHAR" />
+    <result column="user_city" property="userCity" jdbcType="VARCHAR" />
+    <result column="user_area" property="userArea" jdbcType="VARCHAR" />
+    <result column="user_type_id" property="userTypeId" jdbcType="INTEGER" />
+    <result column="create_user_id" property="createUserId" jdbcType="INTEGER" />
+    <result column="update_user_id" property="updateUserId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_acct_id, user_source_type, user_souce_code, user_id, user_gender, user_nick, 
+    user_img, user_province, user_city, user_area, user_type_id, create_user_id, update_user_id, 
+    create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_acct
+    where user_acct_id = #{userAcctId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_user_acct
+    where user_acct_id = #{userAcctId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="UserAcct" >
+    insert into t_user_acct (user_acct_id, user_source_type, user_souce_code, 
+      user_id, user_gender, user_nick, 
+      user_img, user_province, user_city, 
+      user_area, user_type_id, create_user_id, 
+      update_user_id, create_time, update_time
+      )
+    values (#{userAcctId,jdbcType=INTEGER}, #{userSourceType,jdbcType=VARCHAR}, #{userSouceCode,jdbcType=INTEGER}, 
+      #{userId,jdbcType=INTEGER}, #{userGender,jdbcType=INTEGER}, #{userNick,jdbcType=VARCHAR}, 
+      #{userImg,jdbcType=VARCHAR}, #{userProvince,jdbcType=VARCHAR}, #{userCity,jdbcType=VARCHAR}, 
+      #{userArea,jdbcType=VARCHAR}, #{userTypeId,jdbcType=INTEGER}, #{createUserId,jdbcType=INTEGER}, 
+      #{updateUserId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="UserAcct" >
+    insert into t_user_acct
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userAcctId != null" >
+        user_acct_id,
+      </if>
+      <if test="userSourceType != null" >
+        user_source_type,
+      </if>
+      <if test="userSouceCode != null" >
+        user_souce_code,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userGender != null" >
+        user_gender,
+      </if>
+      <if test="userNick != null" >
+        user_nick,
+      </if>
+      <if test="userImg != null" >
+        user_img,
+      </if>
+      <if test="userProvince != null" >
+        user_province,
+      </if>
+      <if test="userCity != null" >
+        user_city,
+      </if>
+      <if test="userArea != null" >
+        user_area,
+      </if>
+      <if test="userTypeId != null" >
+        user_type_id,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userAcctId != null" >
+        #{userAcctId,jdbcType=INTEGER},
+      </if>
+      <if test="userSourceType != null" >
+        #{userSourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="userSouceCode != null" >
+        #{userSouceCode,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userGender != null" >
+        #{userGender,jdbcType=INTEGER},
+      </if>
+      <if test="userNick != null" >
+        #{userNick,jdbcType=VARCHAR},
+      </if>
+      <if test="userImg != null" >
+        #{userImg,jdbcType=VARCHAR},
+      </if>
+      <if test="userProvince != null" >
+        #{userProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="userCity != null" >
+        #{userCity,jdbcType=VARCHAR},
+      </if>
+      <if test="userArea != null" >
+        #{userArea,jdbcType=VARCHAR},
+      </if>
+      <if test="userTypeId != null" >
+        #{userTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=INTEGER},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="UserAcct" >
+    update t_user_acct
+    <set >
+      <if test="userSourceType != null" >
+        user_source_type = #{userSourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="userSouceCode != null" >
+        user_souce_code = #{userSouceCode,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userGender != null" >
+        user_gender = #{userGender,jdbcType=INTEGER},
+      </if>
+      <if test="userNick != null" >
+        user_nick = #{userNick,jdbcType=VARCHAR},
+      </if>
+      <if test="userImg != null" >
+        user_img = #{userImg,jdbcType=VARCHAR},
+      </if>
+      <if test="userProvince != null" >
+        user_province = #{userProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="userCity != null" >
+        user_city = #{userCity,jdbcType=VARCHAR},
+      </if>
+      <if test="userArea != null" >
+        user_area = #{userArea,jdbcType=VARCHAR},
+      </if>
+      <if test="userTypeId != null" >
+        user_type_id = #{userTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=INTEGER},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where user_acct_id = #{userAcctId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="UserAcct" >
+    update t_user_acct
+    set user_source_type = #{userSourceType,jdbcType=VARCHAR},
+      user_souce_code = #{userSouceCode,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      user_gender = #{userGender,jdbcType=INTEGER},
+      user_nick = #{userNick,jdbcType=VARCHAR},
+      user_img = #{userImg,jdbcType=VARCHAR},
+      user_province = #{userProvince,jdbcType=VARCHAR},
+      user_city = #{userCity,jdbcType=VARCHAR},
+      user_area = #{userArea,jdbcType=VARCHAR},
+      user_type_id = #{userTypeId,jdbcType=INTEGER},
+      create_user_id = #{createUserId,jdbcType=INTEGER},
+      update_user_id = #{updateUserId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where user_acct_id = #{userAcctId,jdbcType=INTEGER}
+  </update>
+</mapper>

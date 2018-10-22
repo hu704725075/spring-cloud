@@ -1,5 +1,8 @@
 package com.cloud.user.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class User {
@@ -9,9 +12,14 @@ public class User {
     private Integer userId;
 
     /**
-     * 用户类型
+     * 用户token
      */
-    private Integer userType;
+    private String userToken;
+
+    /**
+     * 用户等级
+     */
+    private Integer userLevel;
 
     /**
      * 用户昵称（微信）
@@ -95,19 +103,35 @@ public class User {
     }
 
     /**
-     * 用户类型
-     * @return user_type 用户类型
+     * 用户token
+     * @return user_token 用户token
      */
-    public Integer getUserType() {
-        return userType;
+    public String getUserToken() {
+        return userToken;
     }
 
     /**
-     * 用户类型
-     * @param userType 用户类型
+     * 用户token
+     * @param userToken 用户token
      */
-    public void setUserType(Integer userType) {
-        this.userType = userType;
+    public void setUserToken(String userToken) {
+        this.userToken = userToken == null ? null : userToken.trim();
+    }
+
+    /**
+     * 用户等级
+     * @return user_level 用户等级
+     */
+    public Integer getUserLevel() {
+        return userLevel;
+    }
+
+    /**
+     * 用户等级
+     * @param userLevel 用户等级
+     */
+    public void setUserLevel(Integer userLevel) {
+        this.userLevel = userLevel;
     }
 
     /**
@@ -162,6 +186,8 @@ public class User {
      * 用户生日
      * @return user_birthday 用户生日
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
     public Date getUserBirthday() {
         return userBirthday;
     }
@@ -274,6 +300,8 @@ public class User {
      * 用户注册时间
      * @return user_register_time 用户注册时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
     public Date getUserRegisterTime() {
         return userRegisterTime;
     }
@@ -290,6 +318,8 @@ public class User {
      * 用户更新时间
      * @return user_update_time 用户更新时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getUserUpdateTime() {
         return userUpdateTime;
     }

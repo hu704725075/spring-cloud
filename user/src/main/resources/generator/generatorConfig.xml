@@ -30,18 +30,24 @@
         </javaModelGenerator>
 
         <!-- mybatis xml file -->
-        <sqlMapGenerator targetPackage="dao"
+        <sqlMapGenerator targetPackage="mapping"
                          targetProject="C:\Users\Administrator\Desktop">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
         <!-- mapper class -->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="dao" targetProject="C:\Users\Administrator\Desktop">
+                             targetPackage="com.cloud.user.dao" targetProject="C:\Users\Administrator\Desktop">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
+        <!--<table tableName="t_share" domainObjectName="Share" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_share" domainObjectName="Share" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_share" domainObjectName="Share" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_share" domainObjectName="Share" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="t_share" domainObjectName="Share" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+
         <table tableName="t_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
     </context>
 </generatorConfiguration>

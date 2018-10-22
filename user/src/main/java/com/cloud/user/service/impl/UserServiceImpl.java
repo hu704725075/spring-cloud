@@ -2,6 +2,7 @@ package com.cloud.user.service.impl;
 
 import com.cloud.user.dao.UserMapper;
 import com.cloud.user.pojo.User;
+import com.cloud.user.rpc.GetActivityList;
 import com.cloud.user.service.IUserService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -20,6 +21,9 @@ public class UserServiceImpl implements IUserService {
 
     @Autowired
     private UserMapper userDao;
+
+    @Autowired
+    private GetActivityList getActivityList;
 
     @Override
     public List<User> findAllUser() {

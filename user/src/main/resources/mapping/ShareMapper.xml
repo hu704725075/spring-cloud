@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.ShareMapper" >
+  <resultMap id="BaseResultMap" type="Share" >
+    <id column="share_id" property="shareId" jdbcType="INTEGER" />
+    <result column="share_type_id" property="shareTypeId" jdbcType="INTEGER" />
+    <result column="share_url" property="shareUrl" jdbcType="VARCHAR" />
+    <result column="share_token" property="shareToken" jdbcType="VARCHAR" />
+    <result column="share_setting" property="shareSetting" jdbcType="VARCHAR" />
+    <result column="share_busi_source" property="shareBusiSource" jdbcType="VARCHAR" />
+    <result column="share_busi_code" property="shareBusiCode" jdbcType="VARCHAR" />
+    <result column="share_access_count" property="shareAccessCount" jdbcType="INTEGER" />
+    <result column="share_accept_count" property="shareAcceptCount" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="DATE" />
+    <result column="create_user" property="createUser" jdbcType="INTEGER" />
+    <result column="update_date" property="updateDate" jdbcType="DATE" />
+    <result column="update_user" property="updateUser" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    share_id, share_type_id, share_url, share_token, share_setting, share_busi_source, 
+    share_busi_code, share_access_count, share_accept_count, create_date, create_user, 
+    update_date, update_user
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_share
+    where share_id = #{shareId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_share
+    where share_id = #{shareId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="Share" >
+    insert into t_share (share_id, share_type_id, share_url, 
+      share_token, share_setting, share_busi_source, 
+      share_busi_code, share_access_count, share_accept_count, 
+      create_date, create_user, update_date, 
+      update_user)
+    values (#{shareId,jdbcType=INTEGER}, #{shareTypeId,jdbcType=INTEGER}, #{shareUrl,jdbcType=VARCHAR}, 
+      #{shareToken,jdbcType=VARCHAR}, #{shareSetting,jdbcType=VARCHAR}, #{shareBusiSource,jdbcType=VARCHAR}, 
+      #{shareBusiCode,jdbcType=VARCHAR}, #{shareAccessCount,jdbcType=INTEGER}, #{shareAcceptCount,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=DATE}, #{createUser,jdbcType=INTEGER}, #{updateDate,jdbcType=DATE}, 
+      #{updateUser,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="Share" >
+    insert into t_share
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="shareId != null" >
+        share_id,
+      </if>
+      <if test="shareTypeId != null" >
+        share_type_id,
+      </if>
+      <if test="shareUrl != null" >
+        share_url,
+      </if>
+      <if test="shareToken != null" >
+        share_token,
+      </if>
+      <if test="shareSetting != null" >
+        share_setting,
+      </if>
+      <if test="shareBusiSource != null" >
+        share_busi_source,
+      </if>
+      <if test="shareBusiCode != null" >
+        share_busi_code,
+      </if>
+      <if test="shareAccessCount != null" >
+        share_access_count,
+      </if>
+      <if test="shareAcceptCount != null" >
+        share_accept_count,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="shareId != null" >
+        #{shareId,jdbcType=INTEGER},
+      </if>
+      <if test="shareTypeId != null" >
+        #{shareTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="shareUrl != null" >
+        #{shareUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="shareToken != null" >
+        #{shareToken,jdbcType=VARCHAR},
+      </if>
+      <if test="shareSetting != null" >
+        #{shareSetting,jdbcType=VARCHAR},
+      </if>
+      <if test="shareBusiSource != null" >
+        #{shareBusiSource,jdbcType=VARCHAR},
+      </if>
+      <if test="shareBusiCode != null" >
+        #{shareBusiCode,jdbcType=VARCHAR},
+      </if>
+      <if test="shareAccessCount != null" >
+        #{shareAccessCount,jdbcType=INTEGER},
+      </if>
+      <if test="shareAcceptCount != null" >
+        #{shareAcceptCount,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=DATE},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="Share" >
+    update t_share
+    <set >
+      <if test="shareTypeId != null" >
+        share_type_id = #{shareTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="shareUrl != null" >
+        share_url = #{shareUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="shareToken != null" >
+        share_token = #{shareToken,jdbcType=VARCHAR},
+      </if>
+      <if test="shareSetting != null" >
+        share_setting = #{shareSetting,jdbcType=VARCHAR},
+      </if>
+      <if test="shareBusiSource != null" >
+        share_busi_source = #{shareBusiSource,jdbcType=VARCHAR},
+      </if>
+      <if test="shareBusiCode != null" >
+        share_busi_code = #{shareBusiCode,jdbcType=VARCHAR},
+      </if>
+      <if test="shareAccessCount != null" >
+        share_access_count = #{shareAccessCount,jdbcType=INTEGER},
+      </if>
+      <if test="shareAcceptCount != null" >
+        share_accept_count = #{shareAcceptCount,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=INTEGER},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=DATE},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser,jdbcType=INTEGER},
+      </if>
+    </set>
+    where share_id = #{shareId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Share" >
+    update t_share
+    set share_type_id = #{shareTypeId,jdbcType=INTEGER},
+      share_url = #{shareUrl,jdbcType=VARCHAR},
+      share_token = #{shareToken,jdbcType=VARCHAR},
+      share_setting = #{shareSetting,jdbcType=VARCHAR},
+      share_busi_source = #{shareBusiSource,jdbcType=VARCHAR},
+      share_busi_code = #{shareBusiCode,jdbcType=VARCHAR},
+      share_access_count = #{shareAccessCount,jdbcType=INTEGER},
+      share_accept_count = #{shareAcceptCount,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=DATE},
+      create_user = #{createUser,jdbcType=INTEGER},
+      update_date = #{updateDate,jdbcType=DATE},
+      update_user = #{updateUser,jdbcType=INTEGER}
+    where share_id = #{shareId,jdbcType=INTEGER}
+  </update>
+</mapper>
