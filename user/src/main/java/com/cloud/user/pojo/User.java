@@ -49,7 +49,7 @@ public class User {
     /**
      * 用户头像（默认获取微信头像可更改）
      */
-    private String userHeadImg;
+    private Integer userHeadImg;
 
     /**
      * 用户手机
@@ -69,7 +69,7 @@ public class User {
     /**
      * 用户微信号
      */
-    private String userWx;
+    private String userWxNo;
 
     /**
      * 用户注册时间
@@ -220,7 +220,7 @@ public class User {
      * 用户头像（默认获取微信头像可更改）
      * @return user_head_img 用户头像（默认获取微信头像可更改）
      */
-    public String getUserHeadImg() {
+    public Integer getUserHeadImg() {
         return userHeadImg;
     }
 
@@ -228,8 +228,8 @@ public class User {
      * 用户头像（默认获取微信头像可更改）
      * @param userHeadImg 用户头像（默认获取微信头像可更改）
      */
-    public void setUserHeadImg(String userHeadImg) {
-        this.userHeadImg = userHeadImg == null ? null : userHeadImg.trim();
+    public void setUserHeadImg(Integer userHeadImg) {
+        this.userHeadImg = userHeadImg;
     }
 
     /**
@@ -282,18 +282,18 @@ public class User {
 
     /**
      * 用户微信号
-     * @return user_wx 用户微信号
+     * @return user_wx_no 用户微信号
      */
-    public String getUserWx() {
-        return userWx;
+    public String getUserWxNo() {
+        return userWxNo;
     }
 
     /**
      * 用户微信号
-     * @param userWx 用户微信号
+     * @param userWxNo 用户微信号
      */
-    public void setUserWx(String userWx) {
-        this.userWx = userWx == null ? null : userWx.trim();
+    public void setUserWxNo(String userWxNo) {
+        this.userWxNo = userWxNo == null ? null : userWxNo.trim();
     }
 
     /**
@@ -319,7 +319,7 @@ public class User {
      * @return user_update_time 用户更新时间
      */
     @DateTimeFormat(pattern="yyyy-MM-dd")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
     public Date getUserUpdateTime() {
         return userUpdateTime;
     }

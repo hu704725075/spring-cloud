@@ -23,7 +23,7 @@
         </javaTypeResolver>
         <!-- 生成(实体)模型的包名和位置-->
         <!-- dto class -->
-        <javaModelGenerator targetPackage="pojo"
+        <javaModelGenerator targetPackage="com.cloud.user.pojo"
                             targetProject="C:\Users\Administrator\Desktop">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />

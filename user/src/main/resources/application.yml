@@ -2,9 +2,11 @@ server:
   port: 8805
 
 spring:
+    application:
+        name: user-consumer
     datasource:
         name: test
-        url: jdbc:mysql://192.168.200.25:3306/royyun_gs
+        url: jdbc:mysql://192.168.200.25:3306/royyun_gs?useSSL=false
         username: root
         password: Admin_123
         driver-class-name: com.mysql.jdbc.Driver
@@ -21,7 +23,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8801/eureka/
-#ÈÈ²¿ÊğÉúĞ§
+#ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½Ğ§
 #spring.devtools.restart.enabled: true
-#ÉèÖÃÖØÆôµÄÄ¿Â¼
+#ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼
 #spring.devtools.restart.additional-paths: src/main/java
